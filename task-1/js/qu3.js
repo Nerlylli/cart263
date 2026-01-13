@@ -72,7 +72,6 @@ function keyPressed() {
                 square2.y = random(0, 500);
             }
     }
-
 }
 
 function moveSquare(square3) {
