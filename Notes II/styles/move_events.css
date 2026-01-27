@@ -35,8 +35,9 @@ body {
 }
 
 .point {
-    width: 5px;
-    height: 5px;
-    background: rgb(221, 71, 71);
+    width: 25px;
+    height: 25px;
+    background: fuchsia;
     position: absolute;
+    border-radius: 25px;
 }
