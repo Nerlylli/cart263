@@ -115,22 +115,45 @@ function setup() {
     /* 5: Select the fourth paragraph element on the page and
     add to the existing content an h2 element containing the text `TEST 123`
     /***CODE */
-    document.getElementsByClassName(".img-descript").innerHTML = "<h2>TEST 123</h2>"
+    let allParagraphs = document.querySelectorAll("p");
+
+    if (allParagraphs[4]) {
+        allParagraphs[4].innerHTML += "<h2>TEST 123</h2>";
+    }
 
     /*************************************** */
     /* 6: Select the fifth paragraph element on the page and add to the existing content
     an img element that holds `one.png`, and add the class newStyle to said paragraph element.
     /***CODE */
-
+    let fifthParagraph = document.getElementById("6");
+    let img = document.createElement("img");
+    img.src = "task-2-images/one.png";
+    fifthParagraph.appendChild(img);
+    fifthParagraph.classList.add("newStyle");
 
     /*************************************** */
     /* 7: Add the following array variable: let colors = ['red','blue','green','orange'];,
     then access all elements with class name inner-container and save to a variable called `innerContainers`. 
+
     Next, iterate over the colors array, and for each color: 
     assign the element from innerContainers variable with the same index 
     (i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...) 
     a background using that color.
     /***CODE */
+
+    let colors = ['red', 'blue', 'green', 'orange'];
+    let innerContainers = document.getElementsByClassName("inner-container");
+
+    for (let i = 0; i < colors.length; i++) {
+        if (innerContainers[i]) {
+            innerContainers[i].style.backgroundColor = colors[i];
+        }
+    }
+
+
+
+
+
 
 
 
