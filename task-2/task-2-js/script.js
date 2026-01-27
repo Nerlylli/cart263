@@ -8,7 +8,7 @@ function setup() {
     //     /* 1: all paragraph elements */
     //     /***CODE */
     //     console.log(document.getElementsByTagName("p"));
-    //     /***OUTPUT: 
+    //     /***OUTPUT:
     //      * HTMLCollection(9) [p#1, p#2.img-descript, p#3.img-descript, p#4.img-descript, p#5.img-descript, p#6.img-descript, p#7.img-descript, p#8.img-descript, p#9.img-descript]
     //      */
 
@@ -17,7 +17,7 @@ function setup() {
     //     /* 2: only the first paragraph element */
     //     /***CODE */
     //     console.log(document.getElementsByTagName("p")[0]);
-    //     /***OUTPUT: 
+    //     /***OUTPUT:
     //      * <p id="1"></p>
     //      */
 
@@ -26,7 +26,7 @@ function setup() {
     //     /* 3: all elements with the class inner-container */
     //     /***CODE */
     //     console.log(document.getElementsByClassName("inner-container"));
-    //     /***OUTPUT: 
+    //     /***OUTPUT:
     //      * HTMLCollection(8) [div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container, div.inner-container]
     //      */
 
@@ -35,7 +35,7 @@ function setup() {
     //     /* 4: the last image element inside the element that has the class img-container */
     //     /***CODE */
     //     console.log(document.getElementsByClassName("img-container")[7]);
-    //     /***OUTPUT: 
+    //     /***OUTPUT:
     //      * <div class="img-container"></div>
     //      */
 
@@ -48,7 +48,7 @@ function setup() {
     //     //A. CODE
     //     console.log(document.querySelectorAll("h2"));
 
-    //     /***OUTPUT: 
+    //     /***OUTPUT:
     //      * NodeList [h2]
     //      * 0: h2
     //      * length: 1
@@ -70,7 +70,7 @@ function setup() {
     //     /* 6: the element with id name parent */
     //     /***CODE */
     //     console.log(document.getElementById("parent"));
-    //     /***OUTPUT: 
+    //     /***OUTPUT:
     //      * <section id="parent"></section>
     //      */
 
@@ -85,6 +85,7 @@ function setup() {
     //     /***CODE */
     //     document.getElementById("1").textContent = "New text in paragraph one: text changed by `Nerly, Ashmitha, Ya Xuan` on the following date: `20/01/2026`."
     //     /*************************************** */
+
     //     /* 2: Select all elements in the HTML that have the class name content-container
     //      and change the background color ... of first and second ...*/
     //     /***CODE */
@@ -99,17 +100,24 @@ function setup() {
     //     for (let i = 2; i < Container.length; i++) {
     //         Container[i].style.backgroundColor = "white"
     //     }
-
     //     /*************************************** */
+
+    // document.querySelectorAll(".content-container")[0].style.background = "orange"
+    // document.querySelectorAll(".content-container")[1].style.background = "purple"
+
     //     /* 3: Change the src element of the first image element on the page to be ...
     //     /***CODE */
     //     document.querySelector(".img-image").setAttribute("src", "task-2-images/seven.png");
+
+    //OR document.getElementByTagName("img")[0].src = "task-2-images/seven.png"
 
     //     /*************************************** */
     //     /* 4: Select the third paragraph element on the page and
     //     replace the content (within the paragraph) to be an h2 element which contains the text `TEST 123`
     //     /***CODE */
     //     document.getElementById("4").innerHTML = "<h2>TEST 123</h2>"
+
+    //OR document.querySelectorAll("p")[2].innerHTML = "<h2>TEST 123</h2>"
 
     //     /*************************************** */
     //     /* 5: Select the fourth paragraph element on the page and
@@ -120,6 +128,8 @@ function setup() {
     //     if (allParagraphs[4]) {
     //         allParagraphs[4].innerHTML += "<h2>TEST 123</h2>";
     //     }
+
+    //OR document.querySelectorAll("p")[3].innerHTML = "<h2>TEST 123</h2>"
 
     //     /*************************************** */
     //     /* 6: Select the fifth paragraph element on the page and add to the existing content
@@ -141,14 +151,14 @@ function setup() {
     //     a background using that color.
     //     /***CODE */
 
-    //     let colors = ['red', 'blue', 'green', 'orange'];
-    //     let innerContainers = document.getElementsByClassName("inner-container");
+    let colors = ['red', 'blue', 'green', 'orange'];
+    let innerContainers = document.getElementsByClassName("inner-container");
 
-    //     for (let i = 0; i < colors.length; i++) {
-    //         if (innerContainers[i]) {
-    //             innerContainers[i].style.backgroundColor = colors[i];
-    //         }
-    //     }
+    for (let i = 0; i < colors.length; i++) {
+        if (innerContainers[i]) {
+            innerContainers[i].style.backgroundColor = colors[i];
+        }
+    }
     //     /*************************************** */
     //     /*** END PART TWO MODIFY */
 
@@ -171,15 +181,16 @@ function setup() {
     function customCreateElement(parent) {
         let newPara = document.createElement("p");
 
-        newPara.textContent = "new paragraph";
+        newPara.textContent = "using create Element";
         newPara.style.backgroundColor = "green";
         newPara.style.color = "white";
 
         parent.appendChild(newPara);
     }
 
-    for (let pTag of allPTagsThree) {
-        customCreateElement(pTag);
+    for (let pTag of allPTagsThree) //allows you to go over objects, using of = no need to use index 
+    {
+        customCreateElement(pTag); //pTag is the parent
     }
 
     /***EXPLANATION::
@@ -266,7 +277,7 @@ function setup() {
     for (let row = 0; row < 10; row++) {
         for (let col = 0; col < 10; col++) {
 
-            /* 3A: Create ANOTHER nested for loop - in order to generate a new grid ...
+            /* 3A: Create ANOTHER nested for loop - in order to generate a new grid...
        USE the same customNewBoxCreate function..., the only difference is that the parent element for each of these new divs is the element whose id is `new-grid-three`. */
             let returnedDiv = customNewBoxCreate(gridThreeParent);
             returnedDiv.style.top = (row * 46.45) + "px";
