@@ -284,7 +284,7 @@ function setup() {
             } else if (remainder === 1) {
                 returnedDiv.style.backgroundColor = "orange";
             } else {
-                returnedDiv.style.backgroundColor = "yelow";
+                returnedDiv.style.backgroundColor = "yellow";
             }
 
             /*  3D: Finally, let each div contain the text content representing the associated remainder
