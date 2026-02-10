@@ -39,8 +39,6 @@ function setup_D() {
     });
   }
 
-
-
   /****************ANI B ************************************ */
   /** PUT ALL YOUR CODE FOR INTERACTIVE PATTERN B INSIDE HERE */
   /****************ANI B ************************************ */
@@ -48,7 +46,6 @@ function setup_D() {
    * YOU CAN USE ALL NOTES --- and see my examples in team-h.js for inspiration and possibly help:).
    * 1: create a creatve, visual pattern using text, divs as shapes, images ... 
    * 2: add in mouseover event listener(s) somewhere to make the sketch interactive
-   *
    * NOTE::: PLEASE::: if you add any custom css PLEASE use the style.css and prefix any class names with your team label
    * i.e. you want to create a custom div class and you are in "Team_A" then call your class TEAM_A_ANI_A_Div -
    * this is so that your styles are not overriden by other teams.
@@ -60,64 +57,65 @@ function setup_D() {
   function aniB(parentCanvas) {
     console.log("in ani-B -teamD");
 
-  }
-  //getting the size of the canvas where my animation is displayed
-  let boundingBoxParent = parentCanvas.getBoundingClientRect();
 
-  let colors = ["#0080ff", "#0b2661", "#ade4ff", "#3a7df1", "#00d9ff", "#0008ff"]; //balloon colors that I initiated
-  let totalBalloon = 15; //number total of balloons
+    //getting the size of the canvas where my animation is displayed
+    let boundingBoxParent = parentCanvas.getBoundingClientRect();
 
-  for (let i = 0; i < totalBalloon; i++) { //loop 15 times
+    let colors = ["#0080ff", "#0b2661", "#ade4ff", "#3a7df1", "#00d9ff", "#0008ff"]; //balloon colors that I initiated
+    let totalBalloon = 15; //number total of balloons
 
-    let balloon = document.createElement("div");
-    balloon.classList.add("TEAM_D_ANI_B"); //create new div
+    for (let i = 0; i < totalBalloon; i++) { //loop 15 times
 
-    //balloon size
-    let size = 50;
-    balloon.style.width = size + "px"; //convert it in px for the css
-    balloon.style.height = size + "px";
+      let balloon = document.createElement("div");
+      balloon.classList.add("TEAM_D_ANI_B"); //create new div
 
-    //random starting position + convert it in px for the css
-    balloon.style.left = Math.random() * (boundingBoxParent.width - size) + "px"; //horizontal
-    balloon.style.top = Math.random() * (boundingBoxParent.height - size) + "px";//vertical
+      //balloon size
+      let size = 50;
+      balloon.style.width = size + "px"; //convert it in px for the css
+      balloon.style.height = size + "px";
 
-    //random starting balloon color
-    balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      //random starting position + convert it in px for the css
+      balloon.style.left = Math.random() * (boundingBoxParent.width - size) + "px"; //horizontal
+      balloon.style.top = Math.random() * (boundingBoxParent.height - size) + "px";//vertical
 
-    parentCanvas.appendChild(balloon); //adding balloon to the canvas
-
-    //mouseover eventListener
-    balloon.addEventListener("mouseover", balloonColors);
-
-    //function balloonColors
-    function balloonColors() {
+      //random starting balloon color
       balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-    }
 
-    //bounce off the canvas (referenced from last week's material)
-    let speedX = 1.5
-    let speedY = 1.5
+      parentCanvas.appendChild(balloon); //adding balloon to the canvas
 
-    function animate() {
-      balloon.style.left = parseInt(balloon.style.left) + speedX + "px";
-      balloon.style.top = parseInt(balloon.style.top) + speedY + "px";
-      checkBounds(parentCanvas, balloon);
-      requestAnimationFrame(animate);
-    }
+      //mouseover eventListener
+      balloon.addEventListener("mouseover", balloonColors);
 
-    function checkBounds(parent, balloon) {
-      let bounds = parent.getBoundingClientRect();
-      let left = parseInt(balloon.style.left);
-      let top = parseInt(balloon.style.top);
-
-      if (left <= 0 || left >= bounds.width - size) {
-        speedX *= -1;
+      //function balloonColors
+      function balloonColors() {
+        balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
       }
-      if (top <= 0 || top >= bounds.height - size) {
-        speedY *= -1;
+
+      //bounce off the canvas (referenced from last week's material)
+      let speedX = 1.5
+      let speedY = 1.5
+
+      function animate() {
+        balloon.style.left = parseInt(balloon.style.left) + speedX + "px";
+        balloon.style.top = parseInt(balloon.style.top) + speedY + "px";
+        checkBounds(parentCanvas, balloon);
+        requestAnimationFrame(animate);
       }
+
+      function checkBounds(parent, balloon) {
+        let bounds = parent.getBoundingClientRect();
+        let left = parseInt(balloon.style.left);
+        let top = parseInt(balloon.style.top);
+
+        if (left <= 0 || left >= bounds.width - size) {
+          speedX *= -1;
+        }
+        if (top <= 0 || top >= bounds.height - size) {
+          speedY *= -1;
+        }
+      }
+      animate();
     }
-    animate();
   }
 
   /****************ANI C ************************************ */
@@ -196,9 +194,6 @@ function setup_D() {
     window.addEventListener("keyup", windowKeyUpRef);
   }
 
-
-
-
   /****************ANI D************************************ */
   /** PUT ALL YOUR CODE FOR INTERACTIVE PATTERN D INSIDE HERE */
   /****************ANI D************************************ */
@@ -206,7 +201,6 @@ function setup_D() {
    * YOU CAN USE ALL NOTES --- and see my examples in team-h.js for inspiration and possibly help:).
    * 1: create a creative, visual pattern using text, divs as shapes, images ...
    * 2: add in animation using requestAnimationFrame somewhere to make the sketch animate :)
-   *
    * NOTE::: PLEASE::: if you add any custom css PLEASE use the style.css and prefix any class names with your team label
    * i.e. you want to create a custom div class and you are in "Team_A" then call your class TEAM_A_ANI_A_Div -
    * this is so that your styles are not overriden by other teams.
@@ -217,44 +211,61 @@ function setup_D() {
   function aniD(parentCanvas) {
     console.log("in ani-D -teamD");
 
-    let particleDiv = this.document.createElement("div");
-    particleDiv.id = "particle";
-    document.querySelector("#parent").appendChild(particleDiv);
-    particleDiv.style.left = "10px";
-    particleDiv.style.top = "10px";
 
-    window.requestAnimationFrame(animate);
+    let sampleColors = [
+      "purple",
+      "fuchsia",
+    ];
 
-    let speedX = 2;
-    let speedY = 3;
+    //get the rendered bounding Box of parent and use the width and height
+    let boundingBoxParent = parentCanvas.getBoundingClientRect();
+    let arrayOfellipses = [];
 
-    function animate() {
-      let p = document.querySelector("#particle");
-      p.style.left = parseInt(p.style.left) + speedX + "px";
-      p.style.top = parseInt(p.style.top) + speedY + "px";
-      console.log("animating");
-      window.requestAnimationFrame(animate);
-      checkBounds(document.getElementById("parent"), p);
+    //make a grid of cells
+    for (let i = 1; i < boundingBoxParent.width; i += 15) {
+      for (let j = 1; j < boundingBoxParent.height; j += 15) {
+        //create a div and place in the grid
+        let ellipse = document.createElement("div");
+        ellipse.classList.add("TEAM_D_cell_D");
+        parentCanvas.appendChild(ellipse);
+        ellipse.style.left = `${j}px`;
+        ellipse.style.top = `${i}px`;
+        ellipse.style.width = "10px";
+        ellipse.style.height = "20px";
+        ellipse.style.opacity = 1;
+        ellipse.style.background =
+          sampleColors[parseInt(Math.random() * sampleColors.length)];
+        ellipse.setAttribute("ani-dir", "1");
+        // ellipse.setAttribute("ani-go", "false");
+        arrayOfellipses.push(ellipse);
+        setTimeout(function () { ellipse.setAttribute("ani-go", "true") })
+      }
     }
+    requestAnimationFrame(animate)
 
-    function checkBounds(parent, p) {
-      let bounds = parent.getBoundingClientRect();
 
-      if (parseInt(p.style.left) > bounds.right) {
-        speedX *= -1;
-
-      } else if (parseInt(p.style.left) < bounds.left) {
-        speedX *= -1;
+    /****** callback for requestAnimationFrame **********/
+    function animate() {
+      for (let i = 0; i < arrayOfellipses.length; i++) {
+        if (arrayOfellipses[i].getAttribute("ani-go") === "true") {
+          let dir_of_ani = parseInt(arrayOfellipses[i].getAttribute("ani-dir"));
+          let currentSize = parseInt(arrayOfellipses[i].style.width);
+          //console.log(currentSize)
+          if (currentSize > 10 || currentSize < 6) {
+            dir_of_ani *= -1;
+            arrayOfellipses[i].setAttribute("ani-dir", dir_of_ani);
+          }
+          arrayOfellipses[i].style.width = currentSize + 1 * dir_of_ani + "px";
+          arrayOfellipses[i].style.height = currentSize + 1 * dir_of_ani + "px";
+          arrayOfellipses[i].style.borderRadius =
+            currentSize + 1 * dir_of_ani + "px";
+        }
       }
-
-      if (parseInt(p.style.top) > bounds.bottom) {
-        speedY *= -1;
-
-      } else if (parseInt(p.style.top) < bounds.top) {
-        speedY *= -1;
-      }
+      //recall animation loop
+      requestAnimationFrame(animate);
     }
   }
-
 }
+
+
 

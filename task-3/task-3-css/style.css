@@ -157,11 +157,11 @@ h5 {
 
 }
 
-.TEAM_H_h_cell_D {
+/* .TEAM_H_h_cell_D {
   position: absolute;
   border-radius: 10px;
   transform: translate(-50%, -50%);
-}
+} */
 
 /*PARTICLE*/
 #particle {
@@ -209,4 +209,10 @@ h5 {
   padding: 4px;
   border-style: double;
   border-width: 14px;
+}
+
+/*NERLY*/
+.TEAM_D_cell_D {
+  position: absolute;
+  transform: translate(100%, 150%);
 }
