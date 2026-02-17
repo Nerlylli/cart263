@@ -1,6 +1,15 @@
-window.onload = function (){
-// Our garden
-let garden = {
+window.onload = function () {
+  // Our garden
+  let garden = {
+
+    //adding birds
+    birds: [], //array to store the individual birds
+    numBirds: 10, //num. of birds in the garden
+
+    //adding dogs
+    numDogs: 10, //num. of dogs in the garden
+    dogs: [], //array to store the individual dogs
+
     /*grass object */
     grass: {
       // The color of the grass (background)
@@ -12,7 +21,7 @@ let garden = {
       //the grass element
       grassDiv: document.createElement("div"),
     },
- 
+
     /*sky object */
     sky: {
       // The color of the sky (background)
@@ -26,7 +35,7 @@ let garden = {
     },
   };
   // new  sun instancce
-  let sun =  new Sun(10,10,{r: 240, g: 206,b: 83})
+  let sun = new Sun(10, 10, { r: 240, g: 206, b: 83 })
 
   function createAndRenderTheGarden() {
     /* note how we use dot notation....*/
@@ -42,10 +51,91 @@ let garden = {
     garden.grass.grassDiv.style.background = `rgb(${garden.grass.grassColor.r},${garden.grass.grassColor.g},${garden.grass.grassColor.b})`;
     document.getElementsByTagName("main")[0].appendChild(garden.grass.grassDiv);
 
-    
+
+
+  }
+
+  function createDogs() {
+    // Create the correct number of dogs and put them in our array
+    for (let i = 0; i < garden.numDogs; i++) {
+      let x = Math.random() * window.innerWidth;
+      let y = Math.random() * 100;
+      let dog = new Dog(x, y, 15, 15); //new Dog calls the constructor
+      garden.dogs.push(dog);
+    }
+  }
+
+  function createBirds() {
+    //create some birds
+    for (let i = 0; i < garden.numBirds; i++) {
+      let x = Math.random() * window.innerWidth;
+      let y = Math.random() * 100;
+      let bird = new Bird(x, y, 15, 15);
+      garden.birds.push(bird);
+    }
+  }
+
+  function renderAnimals() {
+    // Go through all the animals and move, wrap, and display them
+    for (let i = 0; i < garden.dogs.length; i++) {
+      let dog = garden.dogs[i];
+      dog.renderAnimal();
+    }
+
+    // Go through all the birds and move, wrap, and display them
+    for (let i = 0; i < garden.birds.length; i++) {
+      let bird = garden.birds[i];
+      bird.renderAnimal();
+    }
+  }
+
+  function updateGarden() {
+    /** Go through all the animals and move, wrap, and display them */
+    //update dogs
+    for (let i = 0; i < garden.dogs.length; i++) {
+      let dog = garden.dogs[i];
+      dog.move();
+      dog.wrap();
+    }
+
+    //update birds
+    for (let i = 0; i < garden.birds.length; i++) {
+      let bird = garden.birds[i];
+      bird.move();
+      bird.wrap();
+    }
+
+    // if the first dog is set to jump
+    if (garden.dogs[0].isjumping === true) {
+      console.log("jump")
+      garden.dogs[0].updateJump()
+      for (let k = 0; k < garden.birds.length; k++) {
+        garden.dogs[0].catchBird(garden.birds[k])
+      }
+    }
+
+    window.requestAnimationFrame(updateGarden)
+
 
   }
   createAndRenderTheGarden();
+  createDogs(); //make dogs instances
+  createBirds(); //make birds instances
+  renderAnimals(); //visually displaying them on the screen
+  window.requestAnimationFrame(updateGarden);
+
+
+  window.addEventListener("keydown", function (e) {
+    //set up to allow got "0" to jump 
+    if (e.code === "Space") {
+      //prevent default behaviour of the space bar
+      e.preventDefault()
+      //check if the dog is already jumping
+      if (garden.dogs[0].isjumping === false) {
+        garden.dogs[0].jump()
+      }
+
+    }
+  })
 }
 
-  
