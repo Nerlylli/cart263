@@ -15,45 +15,51 @@
     border-style: groove;
     border-radius: 10px;
     overflow: hidden;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
 }
 
 .box {
-    margin: 10px;
+    position: absolute;
     width: 20px;
     min-height: 20px;
-    padding: 1px;
+    margin: 0;
+    padding: 0;
     background: rgb(112, 184, 226);
-    position: absolute;
+    border: 2px solid yellow;
+
     /* style */
-    border: solid;
+    /* border: solid;
     border-width: 2px;
     border-color: yellow;
     left: 0px;
-    top: 0px;
+    top: 0px; */
 }
 
 .target {
     position: absolute;
     width: 20px;
     height: 20px;
+    margin: 0;
+    padding: 0;
     background-color: blue;
     border: 2px solid red;
 }
 
 .bird {
     position: absolute;
-    margin: 10px;
     width: 20px;
     min-height: 20px;
-    padding: 4px;
+    margin: 0;
+    padding: 0;
     background-color: rgb(255, 170, 0);
-    border: solid;
+    border: 2px solid rgb(0, 255, 4);
+    border-radius: 50%;
+    /* border: solid;
     border-width: 2px;
     border-color: rgb(0, 255, 4);
-    border-radius: 25px;
+    border-radius: 25px; */
 }
 
 #score {
@@ -79,5 +85,4 @@
     border: none;
     padding: 20px 60px;
     cursor: pointer;
-
 }
