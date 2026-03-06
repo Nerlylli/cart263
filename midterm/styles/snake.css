@@ -28,13 +28,6 @@
     padding: 0;
     background: rgb(112, 184, 226);
     border: 2px solid yellow;
-
-    /* style */
-    /* border: solid;
-    border-width: 2px;
-    border-color: yellow;
-    left: 0px;
-    top: 0px; */
 }
 
 .target {
@@ -56,10 +49,6 @@
     background-color: rgb(255, 170, 0);
     border: 2px solid rgb(0, 255, 4);
     border-radius: 50%;
-    /* border: solid;
-    border-width: 2px;
-    border-color: rgb(0, 255, 4);
-    border-radius: 25px; */
 }
 
 #score {
@@ -91,13 +80,15 @@
 
 }
 
-/*Instructions page*/
-#instructions {
+/*Instructions & Losing page*/
+#instructions,
+#gameOver {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
+    display: flex;
+    flex-direction: column;
     background: black;
     color: white;
     padding: 40px;
@@ -107,7 +98,8 @@
     z-index: 2000;
 }
 
-#instructions button {
+#instructions button,
+#gameOver button {
     margin-top: 20px;
     padding: 10px 30px;
     font-size: 18px;

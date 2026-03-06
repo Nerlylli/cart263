@@ -18,6 +18,9 @@
 <body>
     <div id="parent">
         <button class="startButton">START</button>
+
+        <div id="score">0</div>
+
         <div id="instructions" style="display:none;">
             <h2>GAME INSTRUCTIONS</h2>
             <br>
@@ -34,9 +37,15 @@
             <p>Press PLAY to start!</p>
             <button id="playButton">PLAY</button>
         </div>
-    </div>
-    <div id="score">0</div>
-    </div>
+
+        <div id="gameOver" style="display:none;">
+            <h1>Game Over!</h1>
+            <br>
+            <p>We told you not to touch the corners!</p>
+            <br>
+            <p>To play again, hit restart.</p>
+            <button id="restartButton">RESTART</button>
+        </div>
 </body>
 
 </html>

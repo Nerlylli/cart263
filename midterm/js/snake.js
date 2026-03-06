@@ -64,6 +64,12 @@ class Snake {
 
     // snake's original position and resets the whole game
     reset(birds) {
+
+        //stops the game
+        this.speedX = 0;
+        this.speedY = 0;
+        this.started = false;
+
         this.segments = [{ x: 10, y: 10 }];
         this.elements.slice(1).forEach(el => el.remove());
         this.elements = [this.elements[0]];
@@ -73,6 +79,9 @@ class Snake {
         birds.forEach(bird => bird.birdElement.remove());
         birds.length = 0;
 
+        //game over page
+        const gameOver = document.getElementById("gameOver");
+        gameOver.style.display = "flex";
     }
 
     //checks for the collision between the snake and the targets

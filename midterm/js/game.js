@@ -1,7 +1,13 @@
 window.onload = function () {
+    //opening page
     const startButton = document.querySelector('.startButton');
+    //instructions page
     const instructions = document.getElementById("instructions");
     const playButton = document.getElementById("playButton");
+    //losing page
+    const restartButton = document.getElementById("restartButton");
+    const gameOver = document.getElementById("gameOver");
+
 
     //after clicking startButton, instructions page shows up
     startButton.addEventListener('click', function () {
@@ -14,6 +20,11 @@ window.onload = function () {
         instructions.style.display = 'none';
         startGame();
     });
+
+    //after clicking restartButton, game game page shows up
+    restartButton.addEventListener("click", function () {
+        gameOver.style.display = 'none';
+    })
 
     function startGame() {
         //defining the constants (snake, tragets)
