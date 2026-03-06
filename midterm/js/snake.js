@@ -83,11 +83,12 @@ class Snake {
         const dx = Math.abs(this.segments[0].x - object.x);
         const dy = Math.abs(this.segments[0].y - object.y);
 
-        //checkes if the snake's head is on the same square or one square away from the object
+        //checkes if the snake's head is on the same square
         if (
-            (dx === 1 && dy === 0) ||
-            (dx === 0 && dy === 1) ||
+            // (dx === 1 && dy === 0) ||
+            // (dx === 0 && dy === 1) ||
             (dx === 0 && dy === 0)
+
         ) {
 
             //if the snake eats a target, it adds a square and if it eats a bird takes off a square
