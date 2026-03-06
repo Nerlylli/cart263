@@ -1,7 +1,17 @@
 window.onload = function () {
     const startButton = document.querySelector('.startButton');
+    const instructions = document.getElementById("instructions");
+    const playButton = document.getElementById("playButton");
+
+    //after clicking startButton, instructions page shows up
     startButton.addEventListener('click', function () {
         startButton.style.display = 'none';
+        instructions.style.display = 'block';
+    });
+
+    //after clicking playButton, game page shows up
+    playButton.addEventListener('click', function () {
+        instructions.style.display = 'none';
         startGame();
     });
 
