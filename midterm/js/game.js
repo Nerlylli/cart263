@@ -15,16 +15,16 @@ window.onload = function () {
         instructions.style.display = 'block';
     });
 
+    //after clicking restartButton, game page shows up
+    restartButton.addEventListener("click", function () {
+        gameOver.style.display = 'none';
+    })
+
     //after clicking playButton, game page shows up
     playButton.addEventListener('click', function () {
         instructions.style.display = 'none';
         startGame();
     });
-
-    //after clicking restartButton, game game page shows up
-    restartButton.addEventListener("click", function () {
-        gameOver.style.display = 'none';
-    })
 
     function startGame() {
         //defining the constants (snake, tragets)
