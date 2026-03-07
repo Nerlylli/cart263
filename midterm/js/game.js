@@ -5,8 +5,11 @@ window.onload = function () {
     const instructions = document.getElementById("instructions");
     const playButton = document.getElementById("playButton");
     //losing page
-    const restartButton = document.getElementById("restartButton");
+    const restartButton = document.querySelectorAll("#restartButton");
     const gameOver = document.getElementById("gameOver");
+    //winning page
+    const gameWin = document.getElementById("gameWin");
+
 
 
     //after clicking startButton, instructions page shows up
@@ -16,8 +19,12 @@ window.onload = function () {
     });
 
     //after clicking restartButton, game page shows up
-    restartButton.addEventListener("click", function () {
-        gameOver.style.display = 'none';
+    restartButton.forEach(button => {
+        button.addEventListener("click", function () {
+            gameOver.style.display = 'none';
+            gameWin.style.display = 'none';
+            location.reload();
+        })
     })
 
     //after clicking playButton, game page shows up
@@ -42,6 +49,12 @@ window.onload = function () {
         function increaseScore() { //updates score by adding one each time
             score++;
             scoreCounter.textContent = "Score: " + score;
+
+            //Win page appears when score gets to 50
+            if (score >= 50) {
+                startButton.style.display = 'flex';
+                gameWin.style.display = "flex";
+            }
         }
         function resetScore() { //resets score back to zero
             score = 0;
