@@ -7,7 +7,10 @@ async function getLiveVideo() {
 
     try {
         let stream = await navigator.mediaDevices.getUserMedia({
-            video: {},
+            video: {
+                width: 720,
+                height: 540,
+            },
         });
         video.srcObject = stream;
         console.log(video.srcObject) //here there is something

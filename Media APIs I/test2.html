@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>getUserMedia Demo</title>
+    <title>getUserMedia Demo II</title>
+
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
@@ -12,7 +13,7 @@
         body {
             background: hotpink;
             margin: 0;
-            padding: 0;
+            padding: 10;
             color: rgb(42, 38, 38);
             opacity: .85;
             font-family: 'Roboto', sans-serif;
@@ -21,36 +22,31 @@
 
         h1 {
             text-align: center;
-            color: purple;
+            color: rgb(226, 43, 141);
 
         }
 
         main {
-            width: 97%;
+            width: 50%;
+            height: 490px;
             margin: 0 auto;
-            background: fuchsia;
+            background: darkmagenta;
         }
 
         #video {
             display: block;
-        }
-
-        .mirror {
-            /* Mirror the video horizontally */
-            -webkit-transform: scaleX(-1);
-            /* Safari and Chrome */
-            transform: scaleX(-1);
+            border: 5px solid darkmagenta;
         }
     </style>
-    <script type="text/javascript" src="js/getUserMedia.js"></script>
-
+    <script type="text/javascript" src="js/getUserMediaAndCanvas.js"></script>
 </head>
 
 <body>
 
-    <h1>⋆｡ﾟ☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆<br>𓆝 𓆟 𓆞 𓆝 𓆟</h1>
+    <h1>𐦍𓂃 ོ☼𓂃⋆.ೃ࿔*:･</h1>
     <main>
-        <video class="mirror" id="video" autoplay="autoplay" controls="true"></video>
+        <video id="video" autoplay="autoplay" controls="true"></video>
+        <canvas id="videoCanvas" width=640 height=240></canvas>
     </main>
 </body>
 
