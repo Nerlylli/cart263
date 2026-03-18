@@ -32,7 +32,7 @@ class CircularObj {
 
   update() {
     //update circle
-    //this.x += 1;
-    //console.log("circle update");
+    // this.x += 1;
+    // console.log("circle update");
   }
 }
