@@ -35,6 +35,32 @@ function go_all_stuff() {
     drawingBoardB.addObj(new RectangularObj(100, 100, 50, 70, "#FF5733", "#E6E6FA", drawingBoardB.context))
     drawingBoardB.display();
 
+    // //adding the microphone to the second drawing board
+    // function animationLoop() {
+    //     drawingBoardA.animate();
+
+    //     if (analyser) {
+    //         analyser.getByteFrequencyData(dataArray);
+    //         drawingBoardB.micData = dataArray; // pass mic data
+    //     }
+
+    //     drawingBoardB.animate(); {
+    //         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    //         for (let i = 0; i < this.objectsOnCanvas.length; i++) {
+    //             if (this.micData) {
+    //                 this.objectsOnCanvas[i].micData = this.micData;
+    //             }
+    //             this.objectsOnCanvas[i].update();
+    //             this.objectsOnCanvas[i].display();
+    //         }
+    //     }
+    //     drawingBoardC.animate();
+    //     drawingBoardD.run(videoEl);
+
+    //     window.requestAnimationFrame(animationLoop);
+    // }
+
 
     let drawingBoardC = new DrawingBoard(theCanvases[2], theContexts[2], theCanvases[2].id);
     //add a freestyle object to canvas C
@@ -73,6 +99,11 @@ function go_all_stuff() {
     function animationLoop() {
         /*** CALL THE EACH CANVAS TO ANIMATE INSIDE  */
         drawingBoardA.animate();
+        if (analyser && dataArray) {
+            analyser.getByteFrequencyData(dataArray);
+            console.log(dataArray);
+            drawingBoardB.micData = dataArray;
+        }
         drawingBoardB.animate();
         drawingBoardC.animate();
         drawingBoardD.run(videoEl)
