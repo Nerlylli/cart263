@@ -46,6 +46,27 @@ function go_all_stuff() {
     drawingBoardD.display();
 
 
+    /**MICROPHONE */
+    let audioCtx;
+    let analyser;
+    let dataArray;
+
+    async function setupMic() {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const source = audioCtx.createMediaStreamSource(stream);
+
+        analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 256;
+
+        const bufferLength = analyser.frequencyBinCount;
+        dataArray = new Uint8Array(bufferLength);
+
+        source.connect(analyser);
+    }
+
+    setupMic();
+
     /*** RUN THE ANIMATION LOOP  */
     window.requestAnimationFrame(animationLoop);
 
