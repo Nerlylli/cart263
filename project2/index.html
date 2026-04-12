@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>3D Snake</title>
+    <link rel="stylesheet" href="styles/snake.css" />
+</head>
+
+<body>
+
+    <!-- INSTRUCTIONS SCREEN -->
+    <div id="instructions">
+        <h2>GAME INSTRUCTIONS</h2>
+        <p>Grow the snake as much as possible.</p>
+        <p>Use arrow keys to move.</p>
+        <p>Do NOT hit the sides.</p>
+        <p>
+            Your microphone controls targets.<br>
+            The louder, the more targets appear.
+        </p>
+        <p>Click and drag your mouse around to rotate the camera.</p>
+        <button id="playButton">PLAY</button>
+    </div>
+
+    <!-- GAME-->
+    <canvas id="snakeGame"></canvas>
+
+    <script type="module">
+        const playButton = document.getElementById("playButton");
+        const instructions = document.getElementById("instructions");
+        const canvas = document.getElementById("snakeGame");
+
+        //instructions screen before game
+        canvas.style.display = "none";
+        //game starts after clicking on button
+        playButton.addEventListener("click", async () => {
+            instructions.style.display = "none";
+            canvas.style.display = "block";
+            //start game
+            await import("./js/game.js");
+        });
+    </script>
+
+</body>
+
+</html>
