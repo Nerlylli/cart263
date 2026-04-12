@@ -23,10 +23,31 @@
         <button id="playButton">PLAY</button>
     </div>
 
+    <!--WINNING SCREEN-->
+    <div id="gameWin">
+        <h2>WOW! You won!</h2>
+
+        <p>Congratulations!<br>
+            Thank you so much for playing our game, dear winner.<br>
+            If you want to play again, hit restart.</p>
+        <button class="restartButton">RESTART</button>
+    </div>
+
+    <!--LOSING SCREEN-->
+    <div id="gameOver">
+        <h2>Game Over!</h2>
+        <br>
+        <p>We told you not to touch the sides!<br>
+            To play again, hit restart.
+        </p>
+        <button class="restartButton">RESTART</button>
+    </div>
+
     <!-- GAME-->
     <canvas id="snakeGame"></canvas>
 
     <script type="module">
+        //instructions
         const playButton = document.getElementById("playButton");
         const instructions = document.getElementById("instructions");
         const canvas = document.getElementById("snakeGame");
@@ -37,9 +58,23 @@
         playButton.addEventListener("click", async () => {
             instructions.style.display = "none";
             canvas.style.display = "block";
-            //start game
+
             await import("./js/game.js");
         });
+
+
+        //losing 
+        const restartButton = document.querySelectorAll(".restartButton");
+        const gameOver = document.getElementById("gameOver");
+        const gameWin = document.getElementById("gameWin");
+        restartButton.forEach(button => {
+            button.addEventListener("click", function () {
+                gameOver.style.display = 'none';
+                gameWin.style.display = 'none';
+                location.reload();
+            })
+        })
+
     </script>
 
 </body>

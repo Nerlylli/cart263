@@ -1,5 +1,6 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.182.0/build/three.module.js";
 
+let gameEnded = false;
 const canvas = document.querySelector("#snakeGame");
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x000000);
@@ -125,7 +126,9 @@ class Snake {
             edge.x < -gridSize || edge.x > gridSize ||
             edge.z < -gridSize || edge.z > gridSize
         ) {
-            this.resetPosition();
+            gameEnded = true;
+            document.getElementById("snakeGame").style.display = "none";
+            document.getElementById("gameOver").style.display = "flex";
         }
     }
 
@@ -196,6 +199,7 @@ let lastCircleSpawn = 0;
 const speed = 200;
 
 function animate(time) {
+    if (gameEnded) return;
     requestAnimationFrame(animate);
 
     // Mic-driven target count
@@ -216,9 +220,14 @@ function animate(time) {
     if (time - lastMove > speed) {
         snake.move();
         for (let i = targets.length - 1; i >= 0; i--) {
+            // if (snake.checkCollision(targets[i])) {
+            //     snake.grow();
+            //     targets[i].relocate();
+            // }
             if (snake.checkCollision(targets[i])) {
-                snake.grow();
-                targets[i].relocate();
+                gameEnded = true;
+                document.getElementById("snakeGame").style.display = "none";
+                document.getElementById("gameWin").style.display = "flex";
             }
         }
         lastMove = time;
@@ -226,6 +235,7 @@ function animate(time) {
 
     snake.render();
     renderer.render(scene, camera);
+
 }
 
 animate();
