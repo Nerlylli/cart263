@@ -1,0 +1,11 @@
+# Aliyah and Lana
+# https://xp30n.github.io/SAVE-THE-INTERNET/ 
+I really liked their project. The layout felt very nostalgic of the old internet or the old computers we used back in the 2000s, especially with the glitches. When clicking on the little person icon, an anime picture pops up saying to click on it to close, however, the opposite happens and a bunch of other anime girl pictures spam the screen. It is only late that I realized that by not clicking, and just waiting a while, the pictures were going to disappear. I clicked on the computer icon on top, and at first, I was quite confused on what was happening, but I thought it was cool how the camera was able to recognize my facial expression, like sad, angry, happy, fearful, suprised or neutral. It was fun to play around with it. The pictures of the cats were a good addition, although I did not understand how to interact with them. Maybe they just were not interactive. 
+
+# Amélie
+# https://nounoune666.github.io/cart263/projects/projectTwo/
+The game was awesome. The interactive aspect of the game is really cool. The music reminded of the sims, and every avatar resembled early sims game with the low resolution. I thought it was nice that each icon was associated to a link about trans people, it feels personal to the creator, but also raises awareness and helps people educate themselves on the topic. It was nice that the topic of using video game avatars as its own gender exploration process was not only talked about, but we were also given the opportunity to learn about it through an article, and participate in a form, if ever the shoe fit.  It was also quite fun how each avatar had their own little spaces, and were very different from one another, and had specific icons for each individual. 
+
+# Philippe and Ben
+# https://philippe-bn.github.io/cart263/projects/project-2/
+The game reminded me of the movie Avatar. The scenery was very beautiful, and it felt very calming to look around and explore everything with the keyboard. The 3d designs were really cool and impressive. The birds felt real as they were moving in different directions and their wings were going up and down. It felt like I was a bird too. 
